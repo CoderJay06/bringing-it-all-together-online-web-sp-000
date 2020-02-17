@@ -80,7 +80,7 @@ class Dog
     end 
     
     def update 
-      sql = "UPDATE dogs SET (name, breed) VALUES (?, ?)"
+      sql = "UPDATE dogs SET name = "
       DB[:conn].execute(sql)
     end 
 
