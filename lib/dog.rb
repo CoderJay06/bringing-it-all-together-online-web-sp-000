@@ -71,7 +71,12 @@ class Dog
     end 
     
     def self.find_by_name(name)
-      
+      sql = "SELECT * FROM dogs WERE name = ?"
+      dog_name = nil
+      DB[:conn].execute(sql, name).select do |dog_row|
+        dog_name = self.new_from_db(dog_row)
+      end 
+      dog_name
     end 
 
 
